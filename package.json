@@ -1,20 +1,25 @@
 {
   "name": "ray-liu-sdk",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.js",
+  "description": "A lightweight SDK for the LOTR API",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "LOTR",
+    "api",
+    "sdk",
+    "javascript",
+    "node"
+  ],
+  "author": "Ray Liu",
   "license": "ISC",
-  "devDependencies": {
-    "eslint": "^7.32.0 || ^8.2.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.2"
-  },
   "dependencies": {
     "node-fetch": "^3.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.4.1"
   }
 }
