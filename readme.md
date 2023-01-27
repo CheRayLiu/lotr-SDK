@@ -1,6 +1,14 @@
 # Lord of the Ring Node Library
 
-Lord of the Ring Node Library provides convenient access to the [LOTR API](https://the-one-api.dev/) from applications written in server-side JavaScript.
+Lord of the Ring Node Library provides convenient access to the [The One API](https://the-one-api.dev/) for applications written in server-side JavaScript.
+
+You can find the official documentation for The One API can be found [here](https://the-one-api.dev/)
+
+Currently the library only support the Movie endpoints:
+
+- `/movies`
+- `/movies/:id`
+- `/movies/:id/quotes`
 
 ## Installation
 
@@ -15,7 +23,7 @@ yarn add ray-liu-sdk
 ## Usage
 
 The library needs to be used with your access token, which is
-available in the (https://the-one-api.dev/account)[The One Api Account Page][api-keys]. Requiring it with the key's value
+available in the (https://the-one-api.dev/account)[The One Api Account Page]. To use the SDK, you can require it with the key's value
 
 ```js
 const client = require('ray-liu-sdk')('YOUR_BEARER_TOKEN');
@@ -61,6 +69,37 @@ const movie = await client.movie.getQuoteById(
 console.log(movie);
 ```
 
+## Entity
+
+### Movie
+
+`List of all movies, including the "The Lord of the Rings" and the "The Hobbit" trilogies`
+
+```js
+client.movie.getMovies();
+```
+
+`Request one specific movie`
+
+```js
+client.movie.getMovieById();
+```
+
+`Request all movie quotes for one specific movie (only working for the LotR trilogy)`
+
+```js
+client.movie.getQuotesByMovieId();
+```
+
 ## Filter and sorting
 
 Filter and supported is not yet supported in this library
+
+# Development
+
+Run all tests:
+
+```sh
+yarn install
+yarn test
+```
