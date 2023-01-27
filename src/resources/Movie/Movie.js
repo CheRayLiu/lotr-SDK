@@ -10,7 +10,7 @@ export default class Movie extends Endpoint {
     return this.request(`${MOVIE_BASE_URL}/${movieId}`, options);
   }
 
-  getQuoteById(movieId, options = {}) {
+  getQuotesByMovieId(movieId, options = {}) {
     return this.request(
       `${MOVIE_BASE_URL}/${movieId}/quote`,
       options
