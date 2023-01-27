@@ -14,7 +14,7 @@
     "javascript",
     "node"
   ],
-  "author": "Ray Liu",
+  "author": "CheRayLiu",
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^3.3.0"
