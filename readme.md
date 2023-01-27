@@ -15,18 +15,18 @@ Currently the library only support the Movie endpoints:
 Install the package with:
 
 ```sh
-npm install ray-liu-sdk --save
+npm install lotr-node-sdk --save
 # or
-yarn add ray-liu-sdk
+yarn add lotr-node-sdk
 ```
 
 ## Usage
 
 The library needs to be used with your access token, which is
-available in the (https://the-one-api.dev/account)[The One Api Account Page]. To use the SDK, you can require it with the key's value
+available in the [The One Api Account Page](https://the-one-api.dev/account). To use the SDK, you can require it with the key's value
 
 ```js
-const client = require('ray-liu-sdk')('YOUR_BEARER_TOKEN');
+const client = require('lotr-node-sdk')('YOUR_BEARER_TOKEN');
 client.movie
   .getMovieById('5cd95395de30eff6ebccde5d')
   .then((movie) => console.log(movie))
@@ -36,7 +36,7 @@ client.movie
 Or using ES modules and using `async`/`await`:
 
 ```js
-import LOTRApi from 'ray-liu-sdk';
+import LOTRApi from 'lotr-node-sdk';
 
 const client = new LOTRApi('YOUR_BEARER_TOKEN');
 const movie = await client.movie.movie('5cd95395de30eff6ebccde5d');
@@ -50,7 +50,7 @@ You can also specify pagination options by passing in an option object specifyin
 Note: Usage of both `offset` and `page` is not supported
 
 ```js
-import LOTRApi from 'ray-liu-sdk';
+import LOTRApi from 'lotr-node-sdk';
 
 const client = new LOTRApi('YOUR_BEARER_TOKEN');
 
