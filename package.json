@@ -1,6 +1,6 @@
 {
   "name": "lotr-node-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "main": "src/index.js",
   "description": "A lightweight SDK for the LOTR API",

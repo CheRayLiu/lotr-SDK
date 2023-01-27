@@ -76,21 +76,23 @@ console.log(movie);
 
 ### Movie
 
-Endpoint: `/movies`
+#### `/movies`
+
 `List of all movies, including the "The Lord of the Rings" and the "The Hobbit" trilogies`
 
 ```js
 client.movie.getMovies();
 ```
 
-Endpoint: `/movies/:id`
+#### `/movies/:id`
+
 `Request one specific movie`
 
 ```js
 client.movie.getMovieById('SOME_ID');
 ```
 
-Endpoint: `/movies/:id/quotes`
+#### `/movies/:id/quotes`
 
 `Request all movie quotes for one specific movie (only working for the LotR trilogy)`
 
