@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "description": "A lightweight SDK for the LOTR API",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive"
   },
   "keywords": [
     "LOTR",
@@ -20,6 +20,8 @@
     "node-fetch": "^3.3.0"
   },
   "devDependencies": {
-    "jest": "^29.4.1"
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nock": "^13.3.0"
   }
 }
