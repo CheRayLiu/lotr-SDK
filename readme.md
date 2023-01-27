@@ -2,7 +2,7 @@
 
 Lord of the Ring Node Library provides convenient access to the [The One API](https://the-one-api.dev/) for applications written in server-side JavaScript.
 
-You can find the official documentation for The One API can be found [here](https://the-one-api.dev/)
+The official documentation for `The One API` can be found [here](https://the-one-api.dev/)
 
 Currently the library only support the Movie endpoints:
 
@@ -23,22 +23,24 @@ yarn add lotr-node-sdk
 ## Usage
 
 The library needs to be used with your access token, which is
-available in the [The One Api Account Page](https://the-one-api.dev/account). To use the SDK, you can require it with the key's value
+available in the [The One Api Account Page](https://the-one-api.dev/account). To use the SDK, you can pass the token into LOTRApi()
 
 ```js
-const client = require('lotr-node-sdk')('YOUR_BEARER_TOKEN');
+import LOTRApi from 'lotr-node-sdk';
+
+const client = new LOTRApi('YOUR_ACCESS_TOKEN');
 client.movie
   .getMovieById('5cd95395de30eff6ebccde5d')
   .then((movie) => console.log(movie))
   .catch((error) => console.error(error));
 ```
 
-Or using ES modules and using `async`/`await`:
+Or using `async`/`await`:
 
 ```js
 import LOTRApi from 'lotr-node-sdk';
 
-const client = new LOTRApi('YOUR_BEARER_TOKEN');
+const client = new LOTRApi('YOUR_ACCESS_TOKEN');
 const movie = await client.movie.movie('5cd95395de30eff6ebccde5d');
 
 console.log(movie);
@@ -46,13 +48,14 @@ console.log(movie);
 
 ## Pagination
 
-You can also specify pagination options by passing in an option object specifying pagination options such as `limit`, `offset` or `page`.
+You can also specify pagination options by passing in an option object specifying pagination options to all endpoint methods (eg. `getMovieById`) such as `limit`, `offset` or `page`.
+
 Note: Usage of both `offset` and `page` is not supported
 
 ```js
 import LOTRApi from 'lotr-node-sdk';
 
-const client = new LOTRApi('YOUR_BEARER_TOKEN');
+const client = new LOTRApi('YOUR_ACCESS_TOKEN');
 
 const options = {
   pagination: {
@@ -61,7 +64,7 @@ const options = {
   },
 };
 
-const movie = await client.movie.getQuoteById(
+const movie = await client.movie.getQuotesByMovieId(
   '5cd95395de30eff6ebccde5d',
   options
 );
@@ -69,31 +72,35 @@ const movie = await client.movie.getQuoteById(
 console.log(movie);
 ```
 
-## Entity
+## Endpoints Available
 
 ### Movie
 
+Endpoint: `/movies`
 `List of all movies, including the "The Lord of the Rings" and the "The Hobbit" trilogies`
 
 ```js
 client.movie.getMovies();
 ```
 
+Endpoint: `/movies/:id`
 `Request one specific movie`
 
 ```js
-client.movie.getMovieById();
+client.movie.getMovieById('SOME_ID');
 ```
+
+Endpoint: `/movies/:id/quotes`
 
 `Request all movie quotes for one specific movie (only working for the LotR trilogy)`
 
 ```js
-client.movie.getQuotesByMovieId();
+client.movie.getQuotesByMovieId('SOME_ID');
 ```
 
 ## Filter and sorting
 
-Filter and supported is not yet supported in this library
+Filter and sorting are not yet supported in this library
 
 # Development
 
